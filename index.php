@@ -1,6 +1,6 @@
 <html>
 <body>
-<h1>Sample page ${INSTANCE_NAME}</h1>
+<h1>Sample page</h1>
 <?php
 
 $dbServer = getenv('DB_SERVER');
