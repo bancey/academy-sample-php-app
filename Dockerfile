@@ -1,7 +1,6 @@
 FROM php:8.3-apache
 
-RUN apt-get update && apt-get install -y \
-    php-pgsql
+RUN docker-php-ext-install pgsql
 
 COPY index.php /var/www/html/index.php
 
