@@ -1,12 +1,15 @@
-<?php include "../inc/dbinfo.inc"; ?>
-
 <html>
 <body>
 <h1>Sample page ${INSTANCE_NAME}</h1>
 <?php
 
+$dbServer = getenv('DB_SERVER');
+$dbUsername = getenv('DB_USERNAME');
+$dbPassword = getenv('DB_PASSWORD');
+$dbDatabase = getenv('DB_DATABASE');
+
 /* Connect to PostgreSQL and select the database. */
-$constring = "host=" . DB_SERVER . " dbname=" . DB_DATABASE . " user=" . DB_USERNAME . " password=" . DB_PASSWORD ;
+$constring = "host=" . $dbServer . " dbname=" . $dbDatabase . " user=" . $dbUsername . " password=" . $dbUsername ;
 $connection = pg_connect($constring);
 
 if (!$connection){
@@ -15,7 +18,7 @@ if (!$connection){
 }
 
 /* Ensure that the EMPLOYEES table exists. */
-VerifyEmployeesTable($connection, DB_DATABASE);
+VerifyEmployeesTable($connection, $dbDatabase);
 
 /* If input fields are populated, add a row to the EMPLOYEES table. */
 $employee_name = htmlentities($_POST['NAME']);
