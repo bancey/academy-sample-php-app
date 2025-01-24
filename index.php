@@ -9,7 +9,7 @@ $dbPassword = getenv('DB_PASSWORD');
 $dbDatabase = getenv('DB_DATABASE');
 
 /* Connect to PostgreSQL and select the database. */
-$constring = "host=" . $dbServer . " dbname=" . $dbDatabase . " user=" . $dbUsername . " password=" . $dbUsername ;
+$constring = "host=" . $dbServer . " dbname=" . $dbDatabase . " user=" . $dbUsername . " password=" . $dbPassword ;
 $connection = pg_connect($constring);
 
 if (!$connection){
